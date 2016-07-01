@@ -1,2 +1,7 @@
-<h1><%= @registeredApplication.name %></h1>
-<h1><%= @registeredApplication.url %></h1>
+<h1><%= @registered_application.name %></h1>
+<h1><%= @registered_application.url %></h1>
+
+
+<% @events.each do |event, c| %>
+  <p> <%= event %> <%= c.count %> </p>
+<% end %>

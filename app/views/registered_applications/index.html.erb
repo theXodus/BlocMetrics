@@ -1,4 +1,4 @@
-<% @registeredApplications.each do |app| %>
+<% @registered_applications.each do |app| %>
   <p>
     <%= link_to app.name, registered_application_path(app) %>
     <%= app.url %> | <%= link_to "Edit", edit_registered_application_path(app) %> <%= link_to "Delete", registered_application_path(app), method: :delete %>

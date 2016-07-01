@@ -3,22 +3,23 @@ class RegisteredApplicationsController < ApplicationController
   before_action :find_application, except: [:index, :new, :create]
 
   def index
-    @registeredApplications = current_user.registered_applications.all
+    @registered_applications = current_user.registered_applications.all
   end
 
   def show
+    @events = @registered_application.events.group_by(&:name)
   end
 
   def new
-    @registeredApplication = RegisteredApplication.new
+    @registered_application = RegisteredApplication.new
   end
 
   def create
-    @registeredApplication = current_user.registered_applications.build(app_params)
+    @registered_application = current_user.registered_applications.build(app_params)
 
-    if @registeredApplication.save
+    if @registered_application.save
       flash[:notice] = "Application Successfully Registered"
-      redirect_to @registeredApplication
+      redirect_to @registered_application
     else
       flash[:notice] = "Application Was Not Able to Register at this Time"
       render :new
@@ -29,9 +30,9 @@ class RegisteredApplicationsController < ApplicationController
   end
 
   def update
-    if @registeredApplication.update(app_params)
+    if @registered_application.update(app_params)
       flash[:notice] = "Application Updated Successfully"
-      redirect_to @registeredApplication
+      redirect_to @registered_application
     else
       flash[:alert] = "Cannot Update Application at this Time."
       redirect_to :edit
@@ -39,7 +40,7 @@ class RegisteredApplicationsController < ApplicationController
   end
 
   def destroy
-    if @registeredApplication.delete
+    if @registered_application.delete
       flash[:notice] = "Application Unregistered"
       redirect_to registered_applications_path
     else
@@ -50,7 +51,7 @@ class RegisteredApplicationsController < ApplicationController
   private
 
   def find_application
-    @registeredApplication = current_user.registered_applications.find(params[:id])
+    @registered_application = current_user.registered_applications.find(params[:id])
   end
 
   def app_params

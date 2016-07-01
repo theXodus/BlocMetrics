@@ -19,4 +19,5 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'faker', '~> 1.6', '>= 1.6.3'
 end
