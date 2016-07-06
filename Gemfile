@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'chartkick'
 gem 'groupdate'
+gem 'faker', '~> 1.6', '>= 1.6.3'
 
 group :production do
   gem 'pg', '~> 0.18.4'
@@ -26,7 +27,6 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
-  gem 'faker', '~> 1.6', '>= 1.6.3'
 end
 
 ruby "2.2.3"
