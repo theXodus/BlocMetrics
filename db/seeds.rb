@@ -19,7 +19,7 @@ apps = RegisteredApplication.all
   name = ["visit", "click", "subscription", "bounce", "submit"]
   Event.create!(
     name: name.sample,
-    registered_application: apps.sample
+    registered_application: apps.sample,
     created_at: Faker::Date.between(10.days.ago, Date.today)
   )
 end
