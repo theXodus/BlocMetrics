@@ -1,6 +1,18 @@
-<% @registered_applications.each do |app| %>
+
   <p>
-    <%= link_to app.name, registered_application_path(app) %>
-    <%= app.url %> | <%= link_to "Edit", edit_registered_application_path(app) %> <%= link_to "Delete", registered_application_path(app), method: :delete %>
-  </p>
-<% end %>
+      </p>
+
+
+<div class="container">
+  <div class="collection">
+    <% @registered_applications.each do |app| %>
+      <div class="collection-item">
+        <%= link_to app.name, registered_application_path(app), class:'text1-75' %>
+        <%= app.url %>
+        <div class="pull-right">
+          <%= link_to "Edit", edit_registered_application_path(app), class:"btn waves-effect waves-light" %> <%= link_to "Delete", registered_application_path(app), method: :delete, class:"btn waves-effect waves-light red accent-4" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

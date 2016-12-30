@@ -1,0 +1,17 @@
+<nav>
+  <div class="container nav-wrapper">
+    <%= link_to "BlocMetrics", root_path, class: "brand-logo" %>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <% if user_signed_in? %>
+        <li>Signed in as: <strong><%= current_user.email %></strong></li>
+        <li><%= link_to 'New App', new_registered_application_path %></li>
+        <li><%= link_to 'My Apps', registered_applications_path %> </li>
+        <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
+        <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to "Sign Up", new_user_registration_path %></li>
+        <li><%= link_to "Sign In", new_user_session_path %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

@@ -11,5 +11,37 @@
  * file per style scope.
  *
  */
- @import "bootstrap-sprockets";
- @import "bootstrap";
+@import "materialize/components/color";
+$primary-color: color("teal", "darken-2") !default;
+@import "materialize";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1.5rem
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+// GLOBAL
+.pull-right {
+  float: right;
+}
+
+
+// Typography
+.text-bold {
+  font-weight: 700;
+}
+input {
+  font-size: 1.25rem !important;
+}
+label {
+  font-size: 1.25rem;
+}
