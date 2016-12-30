@@ -5,8 +5,8 @@
       <h4><%= link_to @registered_application.url, @registered_application.url %></h4>
     </div>
     <div class="col s8">
-      <img src="https://i.sli.mg/wkpD3M.png" alt="">
-      <img src="https://i.sli.mg/OYGoIx.png" alt="">
+      <%= pie_chart @registered_application.events.group(:name).count %>
+      <%= line_chart @registered_application.events.group_by_day(:created_at).count %>
     </div>
   </div>
 </div>
